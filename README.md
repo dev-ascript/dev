@@ -18,7 +18,7 @@ class="_{variable name}-{function}"
 
 아래의 예제처럼 이미지의 링크를 동적으로 바꾸고 싶다면, 일반적으로 다음과 같은 방법을 사용합니다. 물론 `jQuery` 같은 라이브러리를 사용하면 더 쉽게 구현할 수 있습니다.
 
-***[Native Code]***
+***`[Native Code]`***
 ```html
 <h1></h1>
 <a id="sampleLink" href="#">
@@ -48,7 +48,7 @@ class="_{variable name}-{function}"
 
 위 코드를 실행하면 다음과 같이 처리됩니다.
 
-***[Result]***
+***`[Result]`***
 ```html
 <h1>TagWire</h1>
 <a id="sampleLink" href="http://coxcore.com/tagwire">
@@ -59,7 +59,7 @@ class="_{variable name}-{function}"
 
 ***`TagWire`***를 사용하는 경우는 각 element의 class 속성에 필요한 형태의 *`_{variable name}-{function}`*을 추가하고, `TagWire.render` 함수를 이용하여 데이터를 반영합니다.
 
-***[TagWire]***
+***`[TagWire]`***
 ```html
 <h1 class="_siteName-text"></h1>
 <a class="_siteUrl-href" href="#">
@@ -83,7 +83,7 @@ class="_{variable name}-{function}"
 
 그런데 같은 값을 다른 곳에도 사용해야 하는 경우, 일반적인 방법은 해당 부분을 적용하기 위한 javascript 코드를 수정해야 되지만, ***`TagWire`***를 사용하면 필요한 element에 *`_{variable name}-{function}`* 형태의 class를 추가하는 것으로 해당 데이터를 반영할 수 있습니다.
 
-***`Native Code`***
+***`[Native Code]`***
 ```html
 <h1></h1>
 <a id="sampleLink" href="#">
@@ -116,7 +116,7 @@ class="_{variable name}-{function}"
 </script>
 ```
 
-***`TagWire`***
+***`[TagWire]`***
 ```html
 <h1 class="_siteName-text"></h1>
 <a class="_siteUrl-href" href="#">
