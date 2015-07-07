@@ -1,7 +1,5 @@
 ## About TagWire
 
-***`TagWire`*** is a javascript library, that help easily to reflect the data in the HTML tag.
-
 ***`TagWire`***는 데이터를 HTML 태그에 반영하기 쉽게 도와주는 javascript library 입니다.
 
 HTML 태그의 `class` 속성에 다음과 같은 형식으로 추가하여 동작합니다.
@@ -16,7 +14,7 @@ class="_{variable name}-{function}"
 * **`-`** : 변수명과 함수명을 구분하기 위한 구분자입니다.
 * ***`{function}`*** : 데이터를 사용할 속성 혹은 사용자 정의 함수입니다. `Tail Function` 이라고 부릅니다.
 
----
+## Example
 
 예를들어 아래의 예제처럼 이미지의 링크를 동적으로 바꾸고 싶다면, 일반적으로 다음과 같은 방법을 사용할 것입니다. 물론 `jQuery` 같은 라이브러리를 사용하면 더 쉽게 구현할 수 있을겁니다.
 
