@@ -25,6 +25,7 @@ class="_{variable name}-{function}"
     <img id="sampleImg" src="" alt="" />
 </a>
 
+
 <script type="text/javascript">
     var data = {
     	siteUrl : 'http://coxcore.com/tagwire',
@@ -35,6 +36,7 @@ class="_{variable name}-{function}"
     var h1 = document.getElementsByTagName('h1');
     var a = document.getElementById('sampleLink');
     var img = document.getElementById('sampleImg');
+    
     
     // apply 'data'
     h1.innerHTML = data.siteName;
@@ -64,13 +66,15 @@ class="_{variable name}-{function}"
     <img class="_imgPath-src _siteName-alt" src="" alt="" />
 </a>
 
+
 <script type="text/javascript">
     var data = {
     	siteUrl : 'http://coxcore.com/tagwire',
     	siteName : 'TagWire',
     	imgPath : '/img/tagwire.png'
     };
-    
+
+
     // apply 'data'
     TagWire.render(document.body, data); 
 </script>
@@ -119,6 +123,7 @@ class="_{variable name}-{function}"
     <img class="_imgPath-src _siteName-alt" src="" alt="" />
 </a>
 
+
 <!-- modify "TagWire : http://coxcore.com/tagwire" -->
 <p class="_siteName-replace _siteUrl-replace">#siteName# : #siteUrl#</p>
 
@@ -129,6 +134,7 @@ class="_{variable name}-{function}"
     	siteName : 'TagWire',
     	imgPath : '/img/tagwire.png'
     };
+    
     
     // apply 'data'
     TagWire.render(document.body, data);
