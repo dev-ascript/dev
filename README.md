@@ -146,7 +146,7 @@ class="_{variable name}-{function}"
 ```
 
 ## Purpose of Use
-***`TagWire`***의 가장 큰 목적은, Front-end와 Back-end를 명확하게 분리하는 것입니다.
+***`TagWire`***의 가장 큰 목적은, `HTML`, `javascript`, `서버사이드` 업무를 명확하게 분리하는 것입니다.
 
 웹서비스 등을 개발할 때, 완성된 결과물은 대부분이 HTML 태그에 javascript 처리를 위한 코드, 서버사이드 언어가 혼합되어있는 형태입니다. 이는 초기에 `HTML` -> `javascript` -> `서버사이드` 형태로 개발이 진행될 때는 큰 문제가 없지만, 디자인 변경 같은 수정이 발생했을 때는 `HTML` 부터 발생하는 변경에 대해서 `javascrpt`, `서버사이드` 영역까지 영향을 주게 됩니다.
 
