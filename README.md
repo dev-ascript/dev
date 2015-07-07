@@ -81,7 +81,7 @@ class="_{variable name}-{function}"
 ```
 
 
-그런데 같은 값을 다른 곳에도 사용해야 하는 경우, 일반적인 방법은 해당 부분을 적용하기 위한 javascript 코드를 추가해야 되지만, ***`TagWire`***를 사용하면 필요한 element에 *`_{variable name}-{function}`* 형태의 class를 추가하는 것으로 해당 데이터를 반영할 수 있습니다.
+그런데 같은 값을 다른 곳에도 사용해야 하는 경우, 일반적인 방법은 해당 부분을 적용하기 위한 javascript 코드를 추가해야 되지만, ***`TagWire`***는 필요한 element에 *`_{variable name}-{function}`* 형태의 class를 추가하는 것으로 해당 데이터를 반영할 수 있습니다.
 
 ***`[Native Code]`***
 ```html
