@@ -14,6 +14,10 @@ class="_{variable name}-{function}"
 * **`-`** : 변수명과 함수명을 구분하기 위한 구분자입니다.
 * ***`{function}`*** : 데이터를 사용할 속성 혹은 사용자 정의 함수입니다. `Tail Function` 이라고 부릅니다.
 
+관련정보
+* Homepage : http://coxcore.com/tagwire/
+* Documentation : http://coxcore.com/tagwire/doc/
+
 ## Example
 
 아래의 예제처럼 이미지의 링크를 동적으로 바꾸고 싶다면, 일반적으로 다음과 같은 방법을 사용합니다. 물론 `jQuery` 같은 라이브러리를 사용하면 더 쉽게 구현할 수 있습니다.
