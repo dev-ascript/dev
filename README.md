@@ -54,7 +54,7 @@ var data = {
 ```
 
 뿐만 아니라 사용자가 직접 이런 *Tail Function*을 정의할 수도 있습니다.
-```html
+```javascript
 TagWire.tail.example = function(target, value, name) {
     // code..
 };
