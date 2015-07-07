@@ -90,8 +90,10 @@ class="_{variable name}-{function}"
     <img id="sampleImg" src="" alt="" />
 </a>
 
+
 <!-- modify "TagWire : http://coxcore.com/tagwire" -->
 <p id="sampleDesc"></p>
+
 
 <script type="text/javascript">
     var data = {
@@ -104,11 +106,13 @@ class="_{variable name}-{function}"
     var a = document.getElementById('sampleLink');
     var img = document.getElementById('sampleImg');
     
+    
     // apply 'data'
     h1.innerHTML = data.siteName;
     a.setAttribute('href', data.siteUrl);
     img.setAttribute('src', data.imgPath);
     img.setAttribute('alt', data.siteName);
+    
     
     // modify javascript
     var p = document.getElementById('sampleDesc');
