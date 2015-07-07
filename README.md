@@ -148,7 +148,7 @@ jQuery('body').tagwire(data);
 ```html
 <h1 class="_siteName-text">TagWire</h1>
 <a class="_siteUrl-href" href="http://coxcore.com/tagwire">
-    <img class="_imgPath-src _siteName-alt" "/img/tagwire.png" alt="TagWire" />
+    <img class="_imgPath-src _siteName-alt" src="/img/tagwire.png" alt="TagWire" />
 </a>
 ```
 
