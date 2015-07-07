@@ -2,7 +2,7 @@
 
 ***`TagWire`***는 데이터를 HTML 태그에 반영하기 쉽게 도와주는 javascript library 입니다.
 
-HTML 태그의 `class` 속성에 다음과 같은 형식으로 추가하여 동작합니다.
+HTML 태그의 class 속성에 다음과 같은 형식으로 추가하여 동작합니다.
 ```javascript
 class="_{variable name}-{function}"
 ```
@@ -16,8 +16,9 @@ class="_{variable name}-{function}"
 
 ## Example
 
-예를들어 아래의 예제처럼 이미지의 링크를 동적으로 바꾸고 싶다면, 일반적으로 다음과 같은 방법을 사용할 것입니다. 물론 `jQuery` 같은 라이브러리를 사용하면 더 쉽게 구현할 수 있습니다.
+아래의 예제처럼 이미지의 링크를 동적으로 바꾸고 싶다면, 일반적으로 다음과 같은 방법을 사용합니다. 물론 `jQuery` 같은 라이브러리를 사용하면 더 쉽게 구현할 수 있습니다.
 
+***[Native Code]***
 ```html
 <h1></h1>
 <a id="sampleLink" href="#">
@@ -43,7 +44,9 @@ class="_{variable name}-{function}"
 </script>
 ```
 
-그러면 다음과 같이 처리됩니다.
+위 코드를 실행하면 다음과 같이 처리됩니다.
+
+***[Result]***
 ```html
 <h1>TagWire</h1>
 <a id="sampleLink" href="http://coxcore.com/tagwire">
@@ -51,7 +54,10 @@ class="_{variable name}-{function}"
 </a>
 ```
 
-***`TagWire`***를 사용하면 다음과 같습니다.
+
+***`TagWire`***를 사용하는 경우는 각 element의 class 속성에 필요한 형태의 *`_{variable name}-{function}`*을 추가하고, `TagWire.render` 함수를 이용하여 데이터를 반영합니다.
+
+***[TagWire]***
 ```html
 <h1 class="_siteName-text"></h1>
 <a class="_siteUrl-href" href="#">
@@ -128,3 +134,6 @@ class="_{variable name}-{function}"
     TagWire.render(document.body, data);
 </script>
 ```
+
+## Purpose of Use
+
