@@ -19,7 +19,7 @@ class="_{variable name}-{function}"
 
 ## How to Use?
 
-먼저, 처리하고자 하는 값들의 `dataset`을 정의합니다.
+먼저, 처리하고자 하는 값들의 `dataset`을 정의합니다. Javascript object로 변환할 수 있으면 어떤 것이든 상관 없습니다.
 
 ```javascript
 var data = {
