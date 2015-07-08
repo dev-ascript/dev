@@ -75,17 +75,22 @@ TagWire.tail.example = function(target, value, name) {
 
 이제 처음에 정의했던 `dataset`을 `TagWire.render` 함수를 사용하여 적용합니다.
 ```javascript
-TagWire.render(document.body, data);
+TagWire.render({target element}, data);
 ```
 
 `jQuery`를 사용한다면 `render` plugin을 사용할 수 있습니다.
 ```javascript
-jQuery('body').render(data);
+jQuery('target selector').render(data);
 ```
 
 `render`가 이미 사용중인가요? `tagwire`를 사용하세요.
 ```javascript
-jQuery('body').tagwire(data);
+jQuery('target selector').tagwire(data);
+```
+
+API를 이용해 JSON 데이터를 사용하려면 `loadAndRender` plugin을 사용할 수 있습니다.
+```javascript
+jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire options});
 ```
 
 
