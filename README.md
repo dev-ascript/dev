@@ -172,3 +172,33 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 * ***javascript*** : 데이터가 적용되는 시점에 대한 작업을 합니다. 예를 들어, 사용자가 버튼을 `click` 했을 때, 데이터를 가져와서 화면에 `render` 하는 처리를 구현하는 것 같은 형태입니다. 어느 element에 어떻게 적용하는지는 이미 ***HTML*** 작업에서 구현되기 때문에 이 부분에 대한 구현은 하지 않아도 됩니다.
 
 * ***서버사이드*** : 화면에서 사용할 데이터를 관리하고 JSON으로 가공하여 ***javascript***에서 호출할 수 있는 API 등을 만드는데 집중합니다. ***서버사이드*** 영역은 ***`TagWire`***로 처리되는 부분에 대해서는 화면의 변화에 대해서 영향을 받지 않게됩니다.
+
+
+## History
+
+#### 1.0.2
++ `-items` 삭제, `_array` 옵션으로 대체
++ `-insert` entity 문자 버그 수정
++ `-replace` 추가
++ `loadAndRender` 함수 ajax 옵션 버그 수정
++ 코딩 컨벤션 변경
+
+#### 1.0.1
++ `-items` 하위에서만 배열인자에 접근하도록 변경
+
+#### 1.0.0
++ 정식버전 공개
+
+#### Beta
++ TagWire로 명칭 변경
++ `-ready`, `-finish`, `-complete` 이벤트 옵션 추가
++ 비동기 처리 옵션 `_async` 추가
++ 캡쳐 옵션 `_capture` 및 복구 기능 `-restore` 등 추가
+ 
+#### Alpha
++ jQuery를 사용하지 않고 독립적으로 동작되도록 개발
++ 처리속도 개선 (30 ~ 50% 개선)
++ HTML attribute 속성 전체를 지원하도록 추가
+
+#### Prototype
++ DataWire라는 이름의 jQuery Plugin 형태의 Prototype 제작 (2012.09)
