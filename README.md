@@ -212,6 +212,36 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 </div>
 ```
 
+### Array Binding
+
+***`[TagWire]`***
+```html
+<div class="_arrData _array">
+    <p class="_arrData-1-text"></p>
+    <p class="_arrData-0-text"></p>
+    <p class="_arrData-2-text"></p>
+</div>
+
+
+<script type="text/javascript">
+    var data = {
+    	arrData : ['a', 'b', 'c']
+    };
+
+    // apply 'data'
+    TagWire.render(document.body, data); 
+</script>
+```
+
+***`[Result]`***
+```html
+<div class="_arrData _array">
+    <p class="_arrData-1-text">b</p>
+    <p class="_arrData-0-text">a</p>
+    <p class="_arrData-2-text">c</p>
+</div>
+```
+
 ### Build List
 
 ***`[TagWire]`***
