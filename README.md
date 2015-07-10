@@ -1,6 +1,6 @@
 ## About TagWire
 
-***`TagWire`***는 데이터를 HTML 태그에 반영하기 쉽게 도와주는 javascript library 입니다.
+***`TagWire`***는 HTML 태그에 데이터를 반영하기 쉽게 도와주는 javascript library 입니다.
 
 HTML 태그의 class 속성에 다음과 같은 형식으로 추가하여 동작합니다.
 ```javascript
