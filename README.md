@@ -202,4 +202,5 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 + HTML attribute 속성 전체를 지원하도록 추가
 
 #### Prototype
-+ jQuery Plugin 형태의 DataWire Prototype 제작 (2012.09)
++ jQuery Plugin 형태의 DataWire 제작 (2012.09)
++ Oneware 서비스 도입
