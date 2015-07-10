@@ -175,6 +175,8 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 
 
 ## History
+#### 2015.07
++ 구글코드에서 깃허브로 저장소 변경
 
 #### 2015.03
 + ***TagWire*** 정식버전 배포
