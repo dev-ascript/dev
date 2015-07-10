@@ -6,14 +6,14 @@
 
 HTML 태그의 class 속성에 다음과 같은 형식으로 추가하여 동작합니다.
 ```javascript
-class="_{variable name}-{function}"
+class="_{variable name}-{tail function}"
 ```
 
 각 부분의 용도는 다음과 같습니다.
 * **`_`** : 일반 class와 ***`TagWire`***를 구분하기 위한 구분자입니다.
 * ***`{variable name}`*** : 사용할 값의 변수명입니다.
 * **`-`** : 변수명과 함수명을 구분하기 위한 구분자입니다.
-* ***`{function}`*** : 데이터를 사용할 속성 혹은 사용자 정의 함수입니다. *Tail Function* 이라고 부릅니다.
+* ***`{tail function}`*** : 데이터를 사용할 속성 혹은 사용자 정의 함수입니다. *Tail Function* 이라고 부릅니다.
 
 추가정보
 * Homepage : http://coxcore.com/tagwire/
@@ -98,6 +98,8 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 
 ## Example
 
+### Data Binding
+
 ***`[Native Code]`***
 ```html
 <h1></h1>
@@ -161,6 +163,87 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 </a>
 ```
 
+
+## Object Binding
+
+***`[TagWire]`***
+```html
+<div class="_headerData">
+    <p class="_title-text"></p>
+</div>
+
+<div class="_footerData">
+    <p class="_title-text"></p>
+    <p class="_contentData">
+        <span class="_description-html"></span>
+    </p>
+</div>
+
+
+<script type="text/javascript">
+    var data = {
+    	headerData : {
+    	    title : 'Header Title.'
+    	},
+    	footerData : {
+    	    title : 'Footer Title.',
+    	    contentData : {
+    	        description : 'Footer Description.<br />TagWire Sample'
+    	    }
+    	},
+    };
+
+    // apply 'data'
+    TagWire.render(document.body, data); 
+</script>
+```
+
+***`[Result]`***
+```html
+<div class="_headerData">
+    <p class="_title-text">This is Header Module.</p>
+</div>
+
+<div class="_footerData">
+    <p class="_title-text">This is Footer Module.</p>
+    <p class="_contentData">
+        <span class="_description-html">Footer Description.<br />TagWire Sample</span>
+    </p>
+</div>
+```
+
+### Build List
+
+***`[TagWire]`***
+```html
+<div class="_arrData">
+    <ul class="_arrData-list">
+        <li class="_template _item-text">array data</li>
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+    var data = {
+    	arrData : ['a', 'b', 'c']
+    };
+
+    // apply 'data'
+    TagWire.render(document.body, data); 
+</script>
+```
+
+***`[Result]`***
+```html
+<div class="_arrData">
+    <ul class="_arrData-list">
+        <script type="text/tw-template"></script>
+        <li class="_item-text _item _new">a</li>
+        <li class="_item-text _item _new">b</li>
+        <li class="_item-text _item _new">c</li>
+    </ul>
+</div>
+```
 
 ## Purpose of Use
 ***`TagWire`***의 가장 큰 목적은, ***HTML***, ***javascript***, ***서버사이드*** 업무를 명확하게 분리하는 것입니다.
