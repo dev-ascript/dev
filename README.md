@@ -187,7 +187,7 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 + `-items` 하위에서만 배열인자에 접근하도록 변경
 
 #### 1.0.0
-+ 정식버전 공개
++ 정식버전 공개 (2015.03)
 
 #### Beta
 + TagWire로 명칭 변경
