@@ -176,31 +176,27 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 
 ## History
 
-#### 1.0.2
-+ `-items` 삭제, `_array` 옵션으로 대체
-+ `-insert` entity 문자 버그 수정
-+ `-replace` 추가
-+ `loadAndRender` 함수 ajax 옵션 버그 수정
-+ 코딩 컨벤션 변경
+#### 2015.03
++ ***TagWire*** 정식버전 배포
++ 오픈소스로 전환, `MIT License`
 
-#### 1.0.1
-+ `-items` 하위에서만 배열인자에 접근하도록 변경
+#### 2015.01
++ ***TagWire***로 명칭 변경
 
-#### 1.0.0
-+ 오픈소스로 전환 (2015.03)
-+ MIT License
-
-#### Beta
-+ TagWire로 명칭 변경
+#### 2014.10
++ Beta 버전 개발 완료
 + `-ready`, `-finish`, `-complete` 이벤트 옵션 추가
 + 비동기 처리 옵션 `_async` 추가
 + 캡쳐 옵션 `_capture` 및 복구 기능 `-restore` 등 추가
  
-#### Alpha
+#### 2013.11
++ Alpha 버전 개발 완료
 + jQuery를 사용하지 않고 독립적으로 동작되도록 개발
 + 처리속도 개선 (30 ~ 50% 개선)
-+ HTML attribute 속성 전체를 지원하도록 추가
++ HTML attribute 속성 전체를 지원하도록 변경
 
-#### Prototype
-+ jQuery Plugin 형태의 DataWire 제작 (2012.09)
-+ Oneware 서비스 도입
+#### 2012.12
++ Oneware 서비스에 도입
+
+#### 2012.09
++ jQuery Plugin으로 동작되는 ***DataWire*** Prototype 개발 완료
