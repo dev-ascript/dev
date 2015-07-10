@@ -179,8 +179,7 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 + 구글코드에서 깃허브로 저장소 변경
 
 #### 2015.03
-+ ***TagWire*** 정식버전 배포
-+ 오픈소스로 전환, `MIT License`
++ ***TagWire*** 정식버전 1.0.0 배포, `MIT License`
 
 #### 2015.01
 + ***TagWire***로 명칭 변경
