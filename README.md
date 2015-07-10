@@ -1,3 +1,5 @@
+![TagWire Logo](http://isflash.net/common/img/tagwire_sym.png)
+
 ## About TagWire
 
 ***`TagWire`***는 HTML 태그에 데이터를 반영하기 쉽게 도와주는 javascript library 입니다.
