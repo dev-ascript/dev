@@ -35,7 +35,7 @@ var data = {
 
 예를들어 `siteUrl` 값을 `a` 태그의 `href` 속성에 추가하려면 `-href`를 이용합니다.
 ```html
-<a class="_siteUrl-href">링크</a>
+<a class="_siteUrl-href">Link</a>
 ```
 
 `imgPath` 값을 `img` 태그의 `src` 속성에 추가하려면 `-src`를 이용합니다.
@@ -201,11 +201,11 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 ***`[Result]`***
 ```html
 <div class="_headerData">
-    <p class="_title-text">This is Header Module.</p>
+    <p class="_title-text">Header Title</p>
 </div>
 
 <div class="_footerData">
-    <p class="_title-text">This is Footer Module.</p>
+    <p class="_title-text">Footer Title</p>
     <p class="_contentData">
         <span class="_description-html">Footer Description.<br />TagWire Sample</span>
     </p>
