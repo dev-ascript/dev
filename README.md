@@ -164,7 +164,7 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 ```
 
 
-## Object Binding
+### Object Binding
 
 ***`[TagWire]`***
 ```html
