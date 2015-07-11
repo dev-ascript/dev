@@ -246,16 +246,25 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 
 ***`[TagWire]`***
 ```html
-<div class="_arrData">
-    <ul class="_arrData-list">
+<div class="_arrData1 _arrData2">
+    <ul class="_arrData1-list">
         <li class="_template _item-text">array data</li>
+    </ul>
+    <ul class="_arrData2-list">
+        <li class="_template _index-attr" id="list_#index#">
+            <span class="_description-text"></span>
+        </li>
     </ul>
 </div>
 
 
 <script type="text/javascript">
     var data = {
-    	arrData : ['a', 'b', 'c']
+    	arrData1 : ['a', 'b', 'c'],
+    	arrData2 : [
+    	    { index : 11, description : 'about 11' },
+    	    { index : 12, description : 'about 12' }
+    	]
     };
 
     // apply 'data'
@@ -265,12 +274,21 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 
 ***`[Result]`***
 ```html
-<div class="_arrData">
-    <ul class="_arrData-list">
+<div class="_arrData1 _arrData2">
+    <ul class="_arrData1-list">
         <script type="text/tw-template"></script>
         <li class="_item-text _item _new">a</li>
         <li class="_item-text _item _new">b</li>
         <li class="_item-text _item _new">c</li>
+    </ul>
+    <ul class="_arrData2-list">
+        <script type="text/tw-template"></script>
+        <li class="_index-attr _item _new" id="list_11">
+            <span class="_description-text">about 11</span>
+        </li>
+        <li class="_index-attr _item _new" id="list_12">
+            <span class="_description-text">about 12</span>
+        </li>
     </ul>
 </div>
 ```
