@@ -1,0 +1,27 @@
+{
+  "name": "TagWire",
+  "version": "1.0.3",
+  "description": "    This library helps you on the data binds\n    between Javascript object and HTML tags.",
+  "main": "cox.tagwire.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "jshint-stylish": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-ascript/dev.git"
+  },
+  "author": "cox.ascript",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dev-ascript/dev/issues"
+  },
+  "homepage": "https://github.com/dev-ascript/dev#readme"
+}
