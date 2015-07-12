@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
         dir: {
             src: 'src/js/',
-            dist: 'dist/<%= pkg.version %>/'
+            dist: 'build/<%= pkg.version %>/'
         },
 
         banner: '/*!\n' +
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 
             basic: {
                 src: ['<%= dir.src %>cox.TagWire.js', '<%= dir.src %>jquery.TagWire.js'],
-                dest: '<%= dir.dist %>cox.tagwire.js'
+                dest: 'dist/cox.tagwire.js'
             }
         },
 
@@ -53,8 +53,8 @@ module.exports = function(grunt) {
                 preserveComments : false
             },
             build: {
-                src: '<%= dir.dist %>cox.tagwire.js',
-                dest: '<%= dir.dist %>cox.tagwire.min.js'
+                src: 'dist/cox.tagwire.js',
+                dest: 'dist/cox.tagwire.min.js'
             }
         },
 
@@ -62,8 +62,8 @@ module.exports = function(grunt) {
             main: {
                 expand: true,
                 flatten: true,
-                src: '<%= dir.dist %>*',
-                dest: 'dist/',
+                src: 'dist/*',
+                dest: '<%= dir.dist %>',
                 filter: 'isFile'
             },
         },
