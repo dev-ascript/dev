@@ -56,14 +56,26 @@ module.exports = function(grunt) {
                 src: '<%= dir.dist %>cox.tagwire.js',
                 dest: '<%= dir.dist %>cox.tagwire.min.js'
             }
-        }
+        },
+
+        copy: {
+            main: {
+                expand: true,
+                flatten: true,
+                src: '<%= dir.dist %>*',
+                dest: 'dist/',
+                filter: 'isFile'
+            },
+        },
 
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'copy']);
  
 };
