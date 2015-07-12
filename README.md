@@ -1,4 +1,4 @@
-[![TagWire Logo](http://isflash.net/common/img/tagwire_sym.png)](http://coxcore.com/tagwire/home/)
+[![TagWire Logo](https://raw.githubusercontent.com/dev-ascript/dev/master/src/img/tagwire_logo.png)](http://coxcore.com/tagwire/home/)
 
 ## About TagWire
 
