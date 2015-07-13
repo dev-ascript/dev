@@ -57,9 +57,9 @@ cox.ready = cox.ready || function(fnc) {
 
 
 /*  module  */
-;(function(cox){
-
-"use strict";
+;define([
+    "cox"
+], function(cox){
 
 cox.TagWire = cox.TagWire || new CoxTagWire();
 if (window.TagWire === undefined) { window.TagWire = cox.TagWire; }
@@ -1582,7 +1582,7 @@ function CoxTagWire() {
 }
 
 
-})(window.cox||(window.cox={}));
+});
 /*  end of module  */
 
 

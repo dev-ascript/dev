@@ -4,10 +4,6 @@
     @package cox.ready
     @author cox.ascript
 */
-(function(cox) {
-
-"use strict";
-
 cox.ready = cox.ready || function(fnc) {
 
     var eventType,
@@ -43,6 +39,3 @@ cox.ready = cox.ready || function(fnc) {
     }
 
 };
-
-
-})(window.cox||(window.cox={}));
