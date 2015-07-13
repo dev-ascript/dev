@@ -1,38 +1,31 @@
 /*!
-    TagWire jQuery Plugin 1.0.0 - coxcore.com
+    TagWire jQuery Plugin - coxcore.com
 
-    @package jquery.cox.TagWire
+    @package jquery.TagWire
     @author cox.ascript
-    @license MIT
 */
-;(function(TagWire) {
+(function($, TagWire) {
 
 "use strict";
 
-var $ = window.jQuery;
-
-if (!TagWire || !$) {
+if (!$ || !TagWire) {
     return;
 }
 
-
-TagWire.ready(function() {
-
-    // override tagwire tail
+// override tagwire tail
     TagWire.setTail('data', function(t, v, c) {
         $(t).data(c, v);
     });
 
 
-
-    // tagwire plugin
+// tagwire plugin
     $.fn.tagwire = function(v, o) {
         TagWire.render(this, v, o);
         return this;
     };
 
 
-    // extra plugins
+// extra plugins
     plugin('render', $.fn.tagwire);
 
     plugin('callTail', function(fn, v, c) {
@@ -89,8 +82,6 @@ TagWire.ready(function() {
         return this;
     });
 
-});
-
 
 function plugin(name, fnc) {
     var jfn = $.fn;
@@ -101,5 +92,4 @@ function plugin(name, fnc) {
 }
 
 
-// End of Module
-})(window.TagWire);
+})(window.jQuery, window.TagWire);

@@ -3,14 +3,13 @@
 
     @package cox.ready
     @author cox.ascript
-    @license MIT
 */
-;(function(cox) {
+(function(cox) {
 
 "use strict";
 
-
 cox.ready = cox.ready || function(fnc) {
+
     var eventType,
         listener;
 
@@ -42,8 +41,8 @@ cox.ready = cox.ready || function(fnc) {
 
         document.attachEvent(eventType, listener);
     }
+
 };
 
 
-// End of Module
 })(window.cox||(window.cox={}));

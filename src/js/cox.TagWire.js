@@ -3,15 +3,13 @@
 
     @package cox.TagWire
     @author cox.ascript
-    @license MIT
 */
-;(function(cox){
+(function(cox){
 
 "use strict";
 
-// Instance
-var ins = cox.TagWire || (cox.TagWire = new CoxTagWire());
-if (window.TagWire === undefined) { window.TagWire=ins; }
+cox.TagWire = cox.TagWire || new CoxTagWire();
+if (window.TagWire === undefined) { window.TagWire = cox.TagWire; }
 
 
 // TagWire Core
@@ -39,6 +37,7 @@ function CoxTagWire() {
             blk : 'block',
             cpt : 'capture',
             cln : 'clone',
+            hidn : 'hidden',
 
             obda : 'objdata',
             itda : 'itemdata',
@@ -110,7 +109,8 @@ function CoxTagWire() {
 
     var _nitmCls,
         _addTails,
-        _rmvTails;
+        _rmvTails,
+        _afterShow;
 
 
     oeach(EV, function(v) {
@@ -394,14 +394,16 @@ function CoxTagWire() {
         return f;
     };
 
+    _afterShow = function(el) {
+        setCls(el, A.hidn, false);
+    };
+
 
     // public property
     this.tail = tail;
 
 
     // public function
-    this.ready = ready;
-
     this.render = function(t, o, c) {
         var otp,
             vo,
@@ -493,6 +495,8 @@ function CoxTagWire() {
             rendering(t, vo, A.rndr, op);
         }
 
+        afterShow(t);
+
         return o;
     };
 
@@ -546,59 +550,42 @@ function CoxTagWire() {
 
     // init
     (function() {
-        var stl = '.' + H + A.tmp + ',.' + H + A.cpt + '{display:none;}';
+        var css = [
+                '  /* CSS for TagWire */  ',
+                '.' + H + A.tmp + ',',
+                '.' + H + A.cpt + ',',
+                '.' + H + A.hidn,
+                '{display:none;}  '
+            ].join(''),
+            head = document.head || document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
 
-        if (document.readyState === 'complete') {
-            var style = document.createElement('style');
-            
-            style.setAttribute('type', 'text/css');
-            style.textContent = stl;
+        style.setAttribute('type', 'text/css');
 
-            document.getElementsByTagName('head')[0].appendChild(style);
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
         } else {
-            document.write('<style type="text/css">' + stl + '</style>'); // jshint ignore:line
+            style.appendChild(document.createTextNode(css));
         }
 
-        ready(function() {
+        head.appendChild(style);
+
+        cox.ready(function() {
             initTmp(document);
         });
     })();
 
 
-    function ready(fn) {
-        var evt,
-            lis;
-
-        if (typeof fn !== 'function') {
+    // private function
+    function afterShow(t) {
+        if (!t) {
             return;
         }
 
-        evt = 'readystatechange';
-
-        if (document.readyState === 'complete') {
-            fn();
-            return;
-        }
-        
-        if (document.addEventListener) {
-            lis = function() {
-                document.removeEventListener(evt, lis, false);
-                fn();
-            };
-            document.addEventListener(evt, lis, false);
-        } else if (document.attachEvent) {
-            evt = 'on' + evt;
-
-            lis = function() {
-                document.detachEvent(evt, lis);
-                fn();
-            };
-            document.attachEvent(evt, lis);
-        }
+        setCls(t, A.hidn, false);
+        each(findEl(t, A.hidn), _afterShow);
     }
 
-
-    // private function
     function rendering(t, v, c, d) {
         var a = [];
 
@@ -1542,5 +1529,4 @@ function CoxTagWire() {
 }
 
 
-// End of Module
 })(window.cox||(window.cox={}));

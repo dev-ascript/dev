@@ -1,7 +1,13 @@
 {
   "name": "TagWire",
+  "description": "This library helps you on the data binds between Javascript object and HTML tags.",
   "version": "1.0.3",
-  "description": "    This library helps you on the data binds\n    between Javascript object and HTML tags.",
+  "author": {
+    "codename": "cox.ascript",
+    "name": "Park U-yeong",
+    "email": "ascript0@gmail.com"
+  },
+  "license": "MIT",
   "main": "cox.tagwire.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,8 +26,6 @@
     "type": "git",
     "url": "git+https://github.com/dev-ascript/dev.git"
   },
-  "author": "cox.ascript",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dev-ascript/dev/issues"
   },

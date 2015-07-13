@@ -1,21 +1,68 @@
 /*!
     TagWire 1.0.3 - coxcore.com
 
-    This library helps you on the data binds
-    between Javascript object and HTML tags.
+    This library helps you on the data binds between Javascript object and HTML tags.
 
-    @package cox.TagWire
-    @author cox.ascript
-    @update 2015.07.13
-    @license MIT
+    @package  cox.TagWire
+    @author   Park U-yeong (ascript0@gmail.com)
+    @since    2012.09
+    @update   2015.07.13
+    @license  MIT
 */
+/*  module  */
+;(function(cox) {
+
+"use strict";
+
+cox.ready = cox.ready || function(fnc) {
+
+    var eventType,
+        listener;
+
+    if (typeof fnc !== 'function') {
+        return;
+    }
+
+    eventType = 'readystatechange';
+
+    if (document.readyState === 'complete') {
+        fnc();
+        return;
+    }
+    
+    if (document.addEventListener) {
+        listener = function() {
+            document.removeEventListener(eventType, listener, false);
+            fnc();
+        };
+
+        document.addEventListener(eventType, listener, false);
+    } else if (document.attachEvent) {
+        eventType = 'on' + eventType;
+
+        listener = function() {
+            document.detachEvent(eventType, listener);
+            fnc();
+        };
+
+        document.attachEvent(eventType, listener);
+    }
+
+};
+
+
+})(window.cox||(window.cox={}));
+/*  end of module  */
+
+
+
+/*  module  */
 ;(function(cox){
 
 "use strict";
 
-// Instance
-var ins = cox.TagWire || (cox.TagWire = new CoxTagWire());
-if (window.TagWire === undefined) { window.TagWire=ins; }
+cox.TagWire = cox.TagWire || new CoxTagWire();
+if (window.TagWire === undefined) { window.TagWire = cox.TagWire; }
 
 
 // TagWire Core
@@ -43,6 +90,7 @@ function CoxTagWire() {
             blk : 'block',
             cpt : 'capture',
             cln : 'clone',
+            hidn : 'hidden',
 
             obda : 'objdata',
             itda : 'itemdata',
@@ -114,7 +162,8 @@ function CoxTagWire() {
 
     var _nitmCls,
         _addTails,
-        _rmvTails;
+        _rmvTails,
+        _afterShow;
 
 
     oeach(EV, function(v) {
@@ -398,14 +447,16 @@ function CoxTagWire() {
         return f;
     };
 
+    _afterShow = function(el) {
+        setCls(el, A.hidn, false);
+    };
+
 
     // public property
     this.tail = tail;
 
 
     // public function
-    this.ready = ready;
-
     this.render = function(t, o, c) {
         var otp,
             vo,
@@ -497,6 +548,8 @@ function CoxTagWire() {
             rendering(t, vo, A.rndr, op);
         }
 
+        afterShow(t);
+
         return o;
     };
 
@@ -550,59 +603,42 @@ function CoxTagWire() {
 
     // init
     (function() {
-        var stl = '.' + H + A.tmp + ',.' + H + A.cpt + '{display:none;}';
+        var css = [
+                '  /* CSS for TagWire */  ',
+                '.' + H + A.tmp + ',',
+                '.' + H + A.cpt + ',',
+                '.' + H + A.hidn,
+                '{display:none;}  '
+            ].join(''),
+            head = document.head || document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
 
-        if (document.readyState === 'complete') {
-            var style = document.createElement('style');
-            
-            style.setAttribute('type', 'text/css');
-            style.textContent = stl;
+        style.setAttribute('type', 'text/css');
 
-            document.getElementsByTagName('head')[0].appendChild(style);
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
         } else {
-            document.write('<style type="text/css">' + stl + '</style>'); // jshint ignore:line
+            style.appendChild(document.createTextNode(css));
         }
 
-        ready(function() {
+        head.appendChild(style);
+
+        cox.ready(function() {
             initTmp(document);
         });
     })();
 
 
-    function ready(fn) {
-        var evt,
-            lis;
-
-        if (typeof fn !== 'function') {
+    // private function
+    function afterShow(t) {
+        if (!t) {
             return;
         }
 
-        evt = 'readystatechange';
-
-        if (document.readyState === 'complete') {
-            fn();
-            return;
-        }
-        
-        if (document.addEventListener) {
-            lis = function() {
-                document.removeEventListener(evt, lis, false);
-                fn();
-            };
-            document.addEventListener(evt, lis, false);
-        } else if (document.attachEvent) {
-            evt = 'on' + evt;
-
-            lis = function() {
-                document.detachEvent(evt, lis);
-                fn();
-            };
-            document.attachEvent(evt, lis);
-        }
+        setCls(t, A.hidn, false);
+        each(findEl(t, A.hidn), _afterShow);
     }
 
-
-    // private function
     function rendering(t, v, c, d) {
         var a = [];
 
@@ -1546,39 +1582,34 @@ function CoxTagWire() {
 }
 
 
-// End of Module
 })(window.cox||(window.cox={}));
+/*  end of module  */
 
 
 
-;(function(TagWire) {
+/*  module  */
+;(function($, TagWire) {
 
 "use strict";
 
-var $ = window.jQuery;
-
-if (!TagWire || !$) {
+if (!$ || !TagWire) {
     return;
 }
 
-
-TagWire.ready(function() {
-
-    // override tagwire tail
+// override tagwire tail
     TagWire.setTail('data', function(t, v, c) {
         $(t).data(c, v);
     });
 
 
-
-    // tagwire plugin
+// tagwire plugin
     $.fn.tagwire = function(v, o) {
         TagWire.render(this, v, o);
         return this;
     };
 
 
-    // extra plugins
+// extra plugins
     plugin('render', $.fn.tagwire);
 
     plugin('callTail', function(fn, v, c) {
@@ -1635,8 +1666,6 @@ TagWire.ready(function() {
         return this;
     });
 
-});
-
 
 function plugin(name, fnc) {
     var jfn = $.fn;
@@ -1647,5 +1676,5 @@ function plugin(name, fnc) {
 }
 
 
-// End of Module
-})(window.TagWire);
+})(window.jQuery, window.TagWire);
+/*  end of module  */
