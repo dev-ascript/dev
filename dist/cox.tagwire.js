@@ -158,7 +158,8 @@ function CoxTagWire() {
     var _nitmCls,
         _addTails,
         _rmvTails,
-        _afterShow;
+        _afterShow,
+        _rmvHidn;
 
 
     oeach(EV, function(v) {
@@ -446,6 +447,14 @@ function CoxTagWire() {
         setCls(el, A.hidn, false);
     };
 
+    _rmvHidn = function(el) {
+        if (hasCls(el, A.hidn)) {
+            _afterShow(el);
+        }
+
+        each(findEl(el, A.hidn), _afterShow);
+    };
+
 
     // public property
     this.tail = tail;
@@ -630,8 +639,7 @@ function CoxTagWire() {
             return;
         }
 
-        setCls(t, A.hidn, false);
-        each(findEl(t, A.hidn), _afterShow);
+        each(t, _rmvHidn);
     }
 
     function rendering(t, v, c, d) {
