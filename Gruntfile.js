@@ -53,8 +53,7 @@ module.exports = function(grunt) {
                     ].join('\n'),
 
                     separator: [
-                        '\n/*  end of module  */',
-                        '\n\n\n',
+                        '\n/*  end of module  */\n',
                         '/*  module  */\n'
                     ].join('\n'),
 
@@ -72,7 +71,7 @@ module.exports = function(grunt) {
                 src: [
                     '<%= dir.src %>cox.js',
                     '<%= dir.src %>cox.ready.js',
-                    '<%= dir.src %>cox.TagWire.js'
+                    '<%= dir.src %>cox.core.TagWire.js'
                 ],
 
                 dest: '<%= dir.dist %>cox.tagwire.js'
@@ -80,6 +79,19 @@ module.exports = function(grunt) {
             },
 
             plugin: {
+
+                options: {
+
+                    banner: '<%= banner %>\n',
+                    separator: '\n\n',
+                    footer: '\n',
+
+                    stripBanners: {
+                        block: true,
+                        line: true
+                    }
+
+                },
 
                 src: [
                     '<%= dir.dist %>cox.tagwire.js',
@@ -95,7 +107,7 @@ module.exports = function(grunt) {
 
             options: {
 
-                banner: '<%= banner %>',
+                banner: '<%= banner %>\n',
                 mangle: false,
                 compress: {
                     drop_console: false
@@ -107,8 +119,15 @@ module.exports = function(grunt) {
 
             build: {
 
-                src: 'dist/cox.tagwire.js',
-                dest: 'dist/cox.tagwire.min.js'
+                src: '<%= dir.dist %>cox.tagwire.js',
+                dest: '<%= dir.dist %>cox.tagwire.min.js'
+
+            },
+
+            plugin: {
+
+                src: '<%= dir.dist %>jquery.tagwire.js',
+                dest: '<%= dir.dist %>jquery.tagwire.min.js'
 
             }
 
@@ -120,8 +139,8 @@ module.exports = function(grunt) {
 
                 expand: true,
                 flatten: true,
-                src: 'dist/*',
-                dest: '<%= dir.dist %>',
+                src: '<%= dir.dist %>*',
+                dest: '<%= dir.build %>',
                 filter: 'isFile'
 
             },
@@ -130,8 +149,8 @@ module.exports = function(grunt) {
 
                 expand: true,
                 flatten: true,
-                src: 'dist/demo/*',
-                dest: '<%= dir.dist %>/demo/',
+                src: '<%= dir.dist %>demo/*',
+                dest: '<%= dir.build %>demo/',
                 filter: 'isFile'
 
             }
@@ -149,8 +168,9 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'jshint',
         'concat:basic',
-        'concat:build',
-        'uglify',
+        'concat:plugin',
+        'uglify:build',
+        'uglify:plugin',
         'copy'
     ]);
  

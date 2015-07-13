@@ -5,7 +5,6 @@
     @author cox.ascript
 */
 (function($, TagWire) {
-
 "use strict";
 
 if (!$ || !TagWire) {
