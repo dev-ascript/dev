@@ -9,14 +9,14 @@
 
 "use strict";
 
-if (!TagWire) {
+var $ = window.jQuery;
+
+if (!TagWire || !$) {
     return;
 }
 
 
 TagWire.ready(function() {
-    var $ = window.jQuery;
-
 
     // override tagwire tail
     TagWire.setTail('data', function(t, v, c) {
