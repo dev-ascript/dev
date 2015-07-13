@@ -3,11 +3,10 @@
 
     This library helps you on the data binds between Javascript object and HTML tags.
 
-    @package  cox.TagWire
-    @author   Park U-yeong (ascript0@gmail.com)
-    @since    2012.09
-    @update   2015.07.14
-    @license  MIT
+    @author  Park U-yeong / cox.ascript
+    @email   ascript0@gmail.com
+    @update  2015.07.14 (since 2012.09)
+    @license MIT
 */
 (function(){
 "use strict";

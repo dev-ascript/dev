@@ -14,11 +14,10 @@ module.exports = function(grunt) {
             '/*!',
             '    <%= pkg.name %> <%= pkg.version %> - coxcore.com\n',
             '    <%= pkg.description %>\n',
-            '    @package  cox.<%= pkg.name %>',
-            '    @author   <%= pkg.author.name %> (<%= pkg.author.email %>)',
-            '    @since    <%= pkg.since %>',
-            '    @update   <%= grunt.template.today("yyyy.mm.dd") %>',
-            '    @license  <%= pkg.license %>',
+            '    @author  <%= pkg.author.name %> / <%= pkg.author.codename %>',
+            '    @email   <%= pkg.author.email %>',
+            '    @update  <%= grunt.template.today("yyyy.mm.dd") %> (since <%= pkg.since %>)',
+            '    @license <%= pkg.license %>',
             '*/'
         ].join('\n'),
         
