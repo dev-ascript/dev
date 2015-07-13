@@ -5,11 +5,9 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         dir: {
-
             src: 'src/js/',
             build: 'build/<%= pkg.version %>/',
             dist: 'dist/'
-
         },
 
         banner: [
@@ -25,138 +23,91 @@ module.exports = function(grunt) {
         ].join('\n'),
         
         jshint: {
-
             all: [
                 '<%= dir.src %>*'
             ],
 
             options:{
-
                 jshintrc: true,
                 reporter: require('jshint-stylish')
-
             }
-
         },
 
         concat: {
+            options: {
+                banner: [
+                    '<%= banner %>',
+                    '(function(){',
+                    '"use strict";',
+                    '// closure >>>\n\n',
+                    '//// module\n'
+                ].join('\n'),
+
+                separator: [
+                    '\n//// end of module\n\n',
+                    '//// module\n'
+                ].join('\n'),
+
+                footer: [
+                    '\n//// end of module\n\n',
+                    '// <<< closure',
+                    '})();\n'
+                ].join('\n'),
+
+                stripBanners: {
+                    block: true,
+                    line: true
+                }
+            },
 
             basic: {
-
-                options: {
-
-                    banner: [
-                        '<%= banner %>',
-                        '(function(){',
-                        '"use strict";\n',
-                        '/*  module  */\n'
-                    ].join('\n'),
-
-                    separator: [
-                        '\n/*  end of module  */\n',
-                        '/*  module  */\n'
-                    ].join('\n'),
-
-                    footer: [
-                        '\n/*  end of module  */\n',
-                        '})();\n'
-                    ].join('\n'),
-
-                    stripBanners: {
-                        block: true,
-                        line: true
-                    }
-                },
-
                 src: [
                     '<%= dir.src %>cox.js',
                     '<%= dir.src %>cox.ready.js',
-                    '<%= dir.src %>cox.core.TagWire.js'
-                ],
-
-                dest: '<%= dir.dist %>cox.tagwire.js'
-
-            },
-
-            plugin: {
-
-                options: {
-
-                    banner: '<%= banner %>\n',
-                    separator: '\n\n',
-                    footer: '\n',
-
-                    stripBanners: {
-                        block: true,
-                        line: true
-                    }
-
-                },
-
-                src: [
-                    '<%= dir.dist %>cox.tagwire.js',
+                    '<%= dir.src %>cox.TagWire.js',
                     '<%= dir.src %>jquery.TagWire.js'
                 ],
 
-                dest: '<%= dir.dist %>jquery.tagwire.js'
-
+                dest: '<%= dir.dist %>cox.tagwire.js'
             }
         },
 
         uglify: {
-
             options: {
-
                 banner: '<%= banner %>\n',
                 mangle: false,
+
                 compress: {
                     drop_console: false
                 },
+
                 beautify: false,
                 preserveComments : false
-
             },
 
             build: {
-
                 src: '<%= dir.dist %>cox.tagwire.js',
                 dest: '<%= dir.dist %>cox.tagwire.min.js'
-
-            },
-
-            plugin: {
-
-                src: '<%= dir.dist %>jquery.tagwire.js',
-                dest: '<%= dir.dist %>jquery.tagwire.min.js'
-
             }
-
         },
 
         copy: {
-
             main: {
-
                 expand: true,
                 flatten: true,
                 src: '<%= dir.dist %>*',
                 dest: '<%= dir.build %>',
                 filter: 'isFile'
-
             },
 
             demo: {
-
                 expand: true,
                 flatten: true,
                 src: '<%= dir.dist %>demo/*',
                 dest: '<%= dir.build %>demo/',
                 filter: 'isFile'
-
             }
-
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -167,10 +118,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'jshint',
-        'concat:basic',
-        'concat:plugin',
-        'uglify:build',
-        'uglify:plugin',
+        'concat',
+        'uglify',
         'copy'
     ]);
  

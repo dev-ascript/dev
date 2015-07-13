@@ -4,4 +4,4 @@
     @package cox
     @author cox.ascript
 */
-window.cox = window.cox || {};
+var cox = window.cox || (window.cox = {});

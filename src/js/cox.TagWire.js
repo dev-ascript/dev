@@ -1,11 +1,10 @@
 /*!
-    TagWire Core 1.0.3 - coxcore.com
+    TagWire Core - coxcore.com
 
     @package cox.TagWire
     @author cox.ascript
 */
-cox.TagWire = cox.TagWire || new CoxTagWire();
-if (window.TagWire === undefined) { window.TagWire = cox.TagWire; }
+cox.TagWire = cox.TagWire || (function() {
 
 
 function CoxTagWire() {
@@ -1521,4 +1520,8 @@ function CoxTagWire() {
         clog('[TagWire:' + H + c + T + 'log]', '\n - target :', t, '\n - value :' , v);
     };
 
-}
+} // End of CoxTagWire
+
+
+return new CoxTagWire(); })();
+window.TagWire = window.TagWire || cox.TagWire;

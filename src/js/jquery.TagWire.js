@@ -5,43 +5,43 @@
     @author cox.ascript
 */
 (function($, TagWire) {
-"use strict";
 
-if (!$ || !TagWire) {
-    return;
-}
+    if (!$ || !TagWire) {
+        return;
+    }
 
-// override tagwire tail
+
+    // override tagwire tail
     TagWire.setTail('data', function(t, v, c) {
         $(t).data(c, v);
     });
 
 
-// tagwire plugin
+    // tagwire plugin
     $.fn.tagwire = function(v, o) {
         TagWire.render(this, v, o);
         return this;
     };
 
 
-// extra plugins
-    plugin('render', $.fn.tagwire);
+    // extra plugins
+    addPlugin('render', $.fn.tagwire);
 
-    plugin('callTail', function(fn, v, c) {
+    addPlugin('callTail', function(fn, v, c) {
         TagWire.callTail(this, fn, v, c);
         return this;
     });
 
-    plugin('initTemplate', function() {
+    addPlugin('initTemplate', function() {
         TagWire.initTemplate(this);
         return this;
     });
 
-    plugin('copyNode', function() {
+    addPlugin('copyNode', function() {
         return $(TagWire.cloneNode(this));
     });
 
-    plugin('loadAndRender', function(u, o) {
+    addPlugin('loadAndRender', function(u, o) {
         var $this = this,
             ax,
             fn,
@@ -82,13 +82,12 @@ if (!$ || !TagWire) {
     });
 
 
-function plugin(name, fnc) {
-    var jfn = $.fn;
+    function addPlugin(name, fnc) {
+        var jfn = $.fn;
 
-    if (jfn[name] === undefined) {
-        jfn[name] = fnc;
+        if (jfn[name] === undefined) {
+            jfn[name] = fnc;
+        }
     }
-}
-
 
 })(window.jQuery, window.TagWire);
