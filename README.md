@@ -31,6 +31,10 @@ var data = {
 };
 ```
 
+`dataset`을 정의할 때는 다음의 변수명 사용을 피해주세요.
+>`template`, `array`, `reverse`, `topdown`, `bottomup`, `tidx`, `idx`, `i`, `fix`, `item`, `new`, `old`, `render`, `hidden`, `block`, `capture`, `clone`, `objdata`, `itemdata`, `listdata`, `list`, `itemtype`, `async`, `ready`, `finish`, `complete`
+
+
 `dataset`이 만들어지면, 이 값을 참고하여 HTML에 필요한 형식의 class를 추가합니다.
 
 예를들어 `siteUrl` 값을 `a` 태그의 `href` 속성에 추가하려면 `-href`를 이용합니다.
