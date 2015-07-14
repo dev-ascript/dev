@@ -349,7 +349,7 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 + 이벤트 옵션 추가 및 HTML attribute 속성 전체를 지원하도록 변경
 
 #### 2012.12
-+ Oneware 서비스에 도입
++ Oneware 서비스 개발에 도입
 
 #### 2012.09
 + ***Ver Prototype***
