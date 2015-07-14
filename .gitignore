@@ -130,6 +130,7 @@ node_modules
 Icon
 
 # TagWire
-build
-dist/demo
-src/js/demo
+build/
+dist/js/
+dist/demo/
+src/demo/
