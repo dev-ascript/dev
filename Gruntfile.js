@@ -31,13 +31,13 @@ module.exports = function(grunt) {
 
         banner: [
             '/*!',
-            '    <%= pkg.name %> <%= pkg.version %> - coxcore.com\n',
-            '    <%= pkg.description %>\n',
-            '    @author  <%= pkg.author %> / <%= pkg.authorInfo.codename %>',
-            '    @email   <%= pkg.authorInfo.email %>',
-            '    @update  <%= grunt.template.today("yyyy.mm.dd") %> (since <%= pkg.since %>)',
-            '    @license <%= pkg.license %>',
-            '*/'
+            ' *  <%= pkg.name %> <%= pkg.version %> - coxcore.com\n',
+            ' *  <%= pkg.description %>\n',
+            ' *  @author  <%= pkg.author %> / <%= pkg.authorInfo.codename %>',
+            ' *  @email   <%= pkg.authorInfo.email %>',
+            ' *  @update  <%= grunt.template.today("yyyy.mm.dd") %> (since <%= pkg.since %>)',
+            ' *  @license <%= pkg.license %>',
+            ' */'
         ].join('\n'),
         
         jshint: {
@@ -136,8 +136,7 @@ module.exports = function(grunt) {
                 src: '<%= dir.dist %>js/*',
                 dest: '<%= dir.build %>js/'
             },
-
-            demo: {
+            demo:{
                 expand: true,
                 flatten: true,
                 filter: 'isFile',
