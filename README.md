@@ -24,6 +24,7 @@ class="_{variable name}-{tail function}"
 먼저, 처리하고자 하는 값들의 `dataset`을 정의합니다. Javascript object로 변환할 수 있으면 어떤 것이든 상관 없습니다.
 
 ```javascript
+// define dataset
 var data = {
 	siteUrl : 'http://coxcore.com/tagwire',
 	siteName : 'TagWire',
@@ -41,7 +42,8 @@ var data = {
 ```html
 // code
 <a class="_siteUrl-href">Link</a>
-
+```
+```html
 // result
 <a class="_siteUrl-href" href="http://coxcore.com/tagwire">Link</a>
 ```
