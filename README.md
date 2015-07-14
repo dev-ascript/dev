@@ -39,12 +39,20 @@ var data = {
 
 예를들어 `siteUrl` 값을 `a` 태그의 `href` 속성에 추가하려면 `-href`를 이용합니다.
 ```html
+// code
 <a class="_siteUrl-href">Link</a>
+
+// result
+<a class="_siteUrl-href" href="http://coxcore.com/tagwire">Link</a>
 ```
 
 `imgPath` 값을 `img` 태그의 `src` 속성에 추가하려면 `-src`를 이용합니다.
 ```html
+// code
 <img class="_imgPath-src" />
+
+// result
+<img class="_imgPath-src" src="/img/tagwire.png" />
 ```
 
 이처럼 HTML 태그의 모든 attribute는 *`_{variable name}-{attribute}`* 형태로 사용가능합니다.
@@ -53,12 +61,20 @@ var data = {
 
 예를 들어 `siteName` 값을 `p` 태그의 텍스트로 입력하려면 `-text`를 이용합니다.
 ```html
+// code
 <p class="_siteName-text"><p>
+
+// result
+<p class="_siteName-text">TagWire<p>
 ```
 
-`siteName` 값이 `true`일 때 `p` 태그를 노출하고, `false`일 때 숨기려면 `-show`를 이용합니다.
+`siteName` 값이 `true`일 때 `p` 태그를 숨기고, `false`일 때 노출하려면면 `-hide`를 이용합니다.
 ```html
-<p class="_siteName-show"><p>
+// code
+<p class="_siteName-hide"><p>
+
+// result
+<p class="_siteName-hide" style="display:none"><p>
 ```
 
 뿐만 아니라 사용자가 직접 이런 *Tail Function*을 정의할 수도 있습니다.
