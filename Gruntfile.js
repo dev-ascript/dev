@@ -164,9 +164,13 @@ module.exports = function(grunt) {
         'includereplace'
     ]);
 
-    grunt.registerTask('release', [
+    grunt.registerTask('build', [
         'default',
-        'demo',
+        'demo'
+    ]);
+
+    grunt.registerTask('release', [
+        'build',
         'copy'
     ]);
 
