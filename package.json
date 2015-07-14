@@ -3,13 +3,14 @@
   "description": "This library helps you on the data binds between Javascript object and HTML tags.",
   "version": "1.0.3",
   "since": "2012.09",
-  "author": {
+  "author": "Park U-yeong",
+  "logo": "https://raw.githubusercontent.com/dev-ascript/dev/master/src/img/tagwire_logo.png",
+  "authorInfo": {
     "codename": "cox.ascript",
-    "name": "Park U-yeong",
     "email": "ascript0@gmail.com"
   },
   "license": "MIT",
-  "main": "cox.tagwire.js",
+  "main": "dist/cox.tagwire.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +22,7 @@
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-uglify": "^0.9.1",
+    "grunt-include-replace": "^3.0.0",
     "jshint-stylish": "^2.0.1"
   },
   "repository": {

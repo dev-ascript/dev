@@ -8,17 +8,18 @@
     @update  2015.07.14 (since 2012.09)
     @license MIT
 */
+
 (function(){
 "use strict";
-// closure >>>
+// closure >>>>
 
 
-//// module
+// module
 var cox = window.cox || (window.cox = {});
-//// end of module
+// end of module
 
 
-//// module
+// module
 cox.ready = cox.ready || function(fnc) {
 
     var eventType,
@@ -54,10 +55,10 @@ cox.ready = cox.ready || function(fnc) {
     }
 
 };
-//// end of module
+// end of module
 
 
-//// module
+// module
 cox.TagWire = cox.TagWire || (function() {
 
 
@@ -1582,15 +1583,15 @@ function CoxTagWire() {
         clog('[TagWire:' + H + c + T + 'log]', '\n - target :', t, '\n - value :' , v);
     };
 
-} // End of CoxTagWire
+} // end of CoxTagWire
 
 
 return new CoxTagWire(); })();
 window.TagWire = window.TagWire || cox.TagWire;
-//// end of module
+// end of module
 
 
-//// module
+// module
 (function($, TagWire) {
 
     if (!$ || !TagWire) {
@@ -1678,8 +1679,8 @@ window.TagWire = window.TagWire || cox.TagWire;
     }
 
 })(window.jQuery, window.TagWire);
-//// end of module
+// end of module
 
 
-// <<< closure
+// <<<< closure
 })();

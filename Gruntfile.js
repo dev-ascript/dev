@@ -1,12 +1,31 @@
 module.exports = function(grunt) {
 
+    var pkg = grunt.file.readJSON('package.json');
+
+    function getReplaceData(type) {
+        var arr = 'name description logo since update version license'.split(' ');
+        var o = {};
+        var i, l, s;
+
+        for (i = 0, l = arr.length; i < l; i++){
+            s = arr[i];
+            o[s] = pkg[s];
+        }
+
+        o.update = '<%= grunt.template.today("yyyy.mm.dd") %>';
+        o.type = type;
+
+        return o;
+    }
+
     grunt.initConfig({
 
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: pkg,
 
         dir: {
             src: 'src/js/',
-            build: 'build/<%= pkg.version %>/',
+            demo: 'demo/',
+            build: 'build/tagwire-<%= pkg.version %>/',
             dist: 'dist/'
         },
 
@@ -14,8 +33,8 @@ module.exports = function(grunt) {
             '/*!',
             '    <%= pkg.name %> <%= pkg.version %> - coxcore.com\n',
             '    <%= pkg.description %>\n',
-            '    @author  <%= pkg.author.name %> / <%= pkg.author.codename %>',
-            '    @email   <%= pkg.author.email %>',
+            '    @author  <%= pkg.author %> / <%= pkg.authorInfo.codename %>',
+            '    @email   <%= pkg.authorInfo.email %>',
             '    @update  <%= grunt.template.today("yyyy.mm.dd") %> (since <%= pkg.since %>)',
             '    @license <%= pkg.license %>',
             '*/'
@@ -35,21 +54,21 @@ module.exports = function(grunt) {
         concat: {
             options: {
                 banner: [
-                    '<%= banner %>',
+                    '<%= banner %>\n',
                     '(function(){',
                     '"use strict";',
-                    '// closure >>>\n\n',
-                    '//// module\n'
+                    '// closure >>>>\n\n',
+                    '// module\n'
                 ].join('\n'),
 
                 separator: [
-                    '\n//// end of module\n\n',
-                    '//// module\n'
+                    '\n// end of module\n\n',
+                    '// module\n'
                 ].join('\n'),
 
                 footer: [
-                    '\n//// end of module\n\n',
-                    '// <<< closure',
+                    '\n// end of module\n\n',
+                    '// <<<< closure',
                     '})();\n'
                 ].join('\n'),
 
@@ -68,6 +87,25 @@ module.exports = function(grunt) {
                 ],
 
                 dest: '<%= dir.dist %>cox.tagwire.js'
+            }
+        },
+
+        includereplace: {
+            demo: {
+                options: {
+                    includesDir: '<%= dir.demo %>inc/',
+                    globals: getReplaceData('demo')
+                },
+                src: '<%= dir.demo %>*.*',
+                dest: '<%= dir.dist %>'
+            },
+            dev: {
+                options: {
+                    includesDir: '<%= dir.demo %>inc/',
+                    globals: getReplaceData('dev')
+                },
+                src: '<%= dir.demo %>*.*',
+                dest: '<%= dir.src %>'
             }
         },
 
@@ -94,17 +132,17 @@ module.exports = function(grunt) {
             main: {
                 expand: true,
                 flatten: true,
+                filter: 'isFile',
                 src: '<%= dir.dist %>*',
-                dest: '<%= dir.build %>',
-                filter: 'isFile'
+                dest: '<%= dir.build %>'
             },
 
             demo: {
                 expand: true,
                 flatten: true,
-                src: '<%= dir.dist %>demo/*',
-                dest: '<%= dir.build %>demo/',
-                filter: 'isFile'
+                filter: 'isFile',
+                src: '<%= dir.dist %><%= dir.demo %>*',
+                dest: '<%= dir.build %><%= dir.demo %>'
             }
         }
     });
@@ -114,12 +152,22 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-include-replace');
 
-    grunt.registerTask('build', [
+    grunt.registerTask('dist', [
         'jshint',
         'concat',
-        'uglify',
+        'uglify'
+    ]);
+
+    grunt.registerTask('demo', [
+        'includereplace'
+    ]);
+
+    grunt.registerTask('build', [
+        'dist',
+        'demo',
         'copy'
     ]);
- 
+
 };

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+<title>TagWire Demo</title>
+<style type="text/css">
+    body { font: 15px Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+    h1 { padding-bottom:10px; border-bottom: 1px solid #ccc; }
+</style>
+
+</head>
+
+
+<body>
+
+<div class="_package _hidden">
+
+    <h1><span class="_group-text"></span> Project</h1>
+
+    <img class="_logo-src _proejct-alt" src="" alt="" />
+
+    <h2 class="_project-replace _version-replace">#project# - #version#</h2>
+    <p class="_description-text"></p>
+
+    <h3>Information</h3>
+    <ul>
+        <li><strong>Language</strong> : <span class="_language-text"></span></li>
+        <li><strong>Since</strong> : <span class="_since-text"></span></li>
+        <li><strong>Latest</strong> : <span class="_update-text"></span></li>
+        <li><strong>License</strong> : <span class="_license-text"></span></li>
+        <li class="_library">
+            <strong>Files</strong>
+            <ul class="_library-list">
+                <li class="_template">
+                    <a class="_path-href _file-text" href="#" target="_blank"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Members</h3>
+    <ul class="_members _members-list">
+        <li class="_template">
+            <a class="_name-text _email-attr" href="mailto:#email#"></a> (<span class="_coxid-text"></span>)
+        </li>
+    </ul>
+
+    <h3>Links</h3>
+    <ul class="_homepage _homepage-list">
+        <li class="_template">
+            <a class="_url-href _site-text" href="#" target="_blank"></a>
+        </li>
+    </ul>
+
+</div>
+
+
+@@include('@@type_script.html')
+<script type="text/javascript">
+
+    // dataset
+    var json = {
+
+        "package": {
+
+            "project": "@@name",
+            "language": "javascript",
+            "description": "@@description",
+            "logo": '@@logo',
+            "version": "@@version",
+            "since": '@@since',
+            "update": '@@update',
+            "license": "@@license",
+            "group": "COXCORE",
+
+            "library": [
+                {
+                    "file": "cox.tagwire.js",
+                    "path": "../cox.tagwire.js"
+                },
+                {
+                    "file": "cox.tagwire.min.js",
+                    "path": "../cox.tagwire.min.js"
+                }
+            ],
+
+            "members" : [
+                {
+                    "coxid": "cox.ascript",
+                    "name": "Park U-yeong",
+                    "email": "ascript0@gmail.com"
+                }
+            ],
+
+            "homepage" : [
+                {
+                    "site" : "Homepage",
+                    "url" : "http://coxcore.com/tagwire/"
+                },
+                {
+                    "site" : "Documentation",
+                    "url" : "http://coxcore.com/tagwire/doc/"
+                },
+                {
+                    "site" : "GitHub",
+                    "url" : "https://github.com/coxcore/tagwire#readme"
+                }
+            ]
+
+        }
+
+    };
+
+
+    // render data
+    TagWire.render(document.body, json);
+
+    // jQuery
+    //$('body').render(json);
+
+</script>
+
+</body>
+</html>
+

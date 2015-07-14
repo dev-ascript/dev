@@ -1528,7 +1528,7 @@ function CoxTagWire() {
         clog('[TagWire:' + H + c + T + 'log]', '\n - target :', t, '\n - value :' , v);
     };
 
-} // End of CoxTagWire
+} // end of CoxTagWire
 
 
 return new CoxTagWire(); })();
