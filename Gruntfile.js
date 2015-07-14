@@ -23,9 +23,9 @@ module.exports = function(grunt) {
         pkg: pkg,
 
         dir: {
-            src: 'src/js/',
+            src: 'src/',
             demo: 'demo/',
-            build: 'build/tagwire-<%= pkg.version %>/',
+            build: 'build/cox.tagwire-<%= pkg.version %>/',
             dist: 'dist/'
         },
 
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         
         jshint: {
             all: [
-                '<%= dir.src %>*'
+                '<%= dir.src %>js/*'
             ],
 
             options:{
@@ -80,13 +80,13 @@ module.exports = function(grunt) {
 
             basic: {
                 src: [
-                    '<%= dir.src %>cox.js',
-                    '<%= dir.src %>cox.ready.js',
-                    '<%= dir.src %>cox.TagWire.js',
-                    '<%= dir.src %>jquery.TagWire.js'
+                    '<%= dir.src %>js/cox.js',
+                    '<%= dir.src %>js/cox.ready.js',
+                    '<%= dir.src %>js/cox.TagWire.js',
+                    '<%= dir.src %>js/jquery.TagWire.js'
                 ],
 
-                dest: '<%= dir.dist %>cox.tagwire.js'
+                dest: '<%= dir.dist %>js/cox.tagwire.js'
             }
         },
 
@@ -123,8 +123,8 @@ module.exports = function(grunt) {
             },
 
             build: {
-                src: '<%= dir.dist %>cox.tagwire.js',
-                dest: '<%= dir.dist %>cox.tagwire.min.js'
+                src: '<%= dir.dist %>js/cox.tagwire.js',
+                dest: '<%= dir.dist %>js/cox.tagwire.min.js'
             }
         },
 
@@ -133,8 +133,8 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true,
                 filter: 'isFile',
-                src: '<%= dir.dist %>*',
-                dest: '<%= dir.build %>'
+                src: '<%= dir.dist %>js/*',
+                dest: '<%= dir.build %>js/'
             },
 
             demo: {
@@ -154,7 +154,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-include-replace');
 
-    grunt.registerTask('dist', [
+    grunt.registerTask('default', [
         'jshint',
         'concat',
         'uglify'
@@ -164,8 +164,8 @@ module.exports = function(grunt) {
         'includereplace'
     ]);
 
-    grunt.registerTask('build', [
-        'dist',
+    grunt.registerTask('release', [
+        'default',
         'demo',
         'copy'
     ]);
