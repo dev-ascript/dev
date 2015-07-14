@@ -39,12 +39,12 @@ var data = {
 `dataset`이 만들어지면, 이 값을 참고하여 HTML에 필요한 형식의 class를 추가합니다.
 
 예를들어 `siteUrl` 값을 `a` 태그의 `href` 속성에 추가하려면 `-href`를 이용합니다.
-***`[Code]`***
 ```html
+// code
 <a class="_siteUrl-href">Link</a>
 ```
-***`[Result]`***
 ```html
+// result
 <a class="_siteUrl-href" href="http://coxcore.com/tagwire">Link</a>
 ```
 
@@ -52,7 +52,8 @@ var data = {
 ```html
 // code
 <img class="_imgPath-src" />
-
+```
+```html
 // result
 <img class="_imgPath-src" src="/img/tagwire.png" />
 ```
@@ -65,7 +66,8 @@ var data = {
 ```html
 // code
 <p class="_siteName-text"><p>
-
+```
+```html
 // result
 <p class="_siteName-text">TagWire<p>
 ```
@@ -74,7 +76,8 @@ var data = {
 ```html
 // code
 <p class="_siteName-hide"><p>
-
+```
+```html
 // result
 <p class="_siteName-hide" style="display:none"><p>
 ```
