@@ -31,6 +31,10 @@ var data = {
 };
 ```
 
+`dataset`을 정의할 때는 다음의 변수명 사용을 피해주세요.
+>`template`, `array`, `reverse`, `topdown`, `bottomup`, `tidx`, `idx`, `i`, `fix`, `item`, `new`, `old`, `render`, `hidden`, `block`, `capture`, `clone`, `objdata`, `itemdata`, `listdata`, `list`, `itemtype`, `async`, `ready`, `finish`, `complete`
+
+
 `dataset`이 만들어지면, 이 값을 참고하여 HTML에 필요한 형식의 class를 추가합니다.
 
 예를들어 `siteUrl` 값을 `a` 태그의 `href` 속성에 추가하려면 `-href`를 이용합니다.
@@ -309,28 +313,28 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 
 ## History
 #### 2015.07
++ ***Ver 1.0.3***
 + 구글코드에서 깃허브로 저장소 변경
 
 #### 2015.03
-+ ***TagWire*** 정식버전 1.0.0 배포, `MIT License`
++ ***Ver 1.0.0***
++ ***TagWire*** 정식버전 배포, `MIT License`
 
 #### 2015.01
 + ***TagWire***로 명칭 변경
 
 #### 2014.10
-+ Beta 버전 개발 완료
-+ `-ready`, `-finish`, `-complete` 이벤트 옵션 추가
-+ 비동기 처리 옵션 `_async` 추가
-+ 캡쳐 옵션 `_capture` 및 복구 기능 `-restore` 등 추가
++ ***Ver Beta***
++ 캡쳐 옵션, 복구관련 기능 추가
  
 #### 2013.11
-+ Alpha 버전 개발 완료
-+ jQuery를 사용하지 않고 독립적으로 동작되도록 개발
-+ 처리속도 개선 (30 ~ 50% 개선)
-+ HTML attribute 속성 전체를 지원하도록 변경
++ ***Ver Alpha***
++ jQuery에 의존하지 않고 독립적으로 사용하도록 재설계(30 ~ 50% 성능개선)
++ 이벤트 옵션 추가 및 HTML attribute 속성 전체를 지원하도록 변경
 
 #### 2012.12
 + Oneware 서비스에 도입
 
 #### 2012.09
-+ jQuery Plugin으로 동작되는 ***DataWire*** Prototype 개발 완료
++ ***Ver Prototype***
++ jQuery Plugin으로 동작되는 ***DataWire*** 개발 완료
