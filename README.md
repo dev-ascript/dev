@@ -321,15 +321,12 @@ jQuery('target selector').loadAndRender('url' or {ajax options}, {tagwire option
 
 #### 2014.10
 + ***Ver Beta***
-+ `-ready`, `-finish`, `-complete` 이벤트 옵션 추가
-+ 비동기 처리 기능 `-async` 추가
-+ 캡쳐 옵션 `_capture` 및 복구 관련 기능 `-restore` 등 추가
++ 캡쳐 옵션, 복구관련 기능 추가
  
 #### 2013.11
 + ***Ver Alpha***
-+ jQuery에 의존하지 않고 독립적으로 사용하도록 재설계
-+ 처리속도 개선 (30 ~ 50% 개선)
-+ HTML attribute 속성 전체를 지원하도록 변경
++ jQuery에 의존하지 않고 독립적으로 사용하도록 재설계(30 ~ 50% 성능개선)
++ 이벤트 옵션 추가 및 HTML attribute 속성 전체를 지원하도록 변경
 
 #### 2012.12
 + Oneware 서비스에 도입
