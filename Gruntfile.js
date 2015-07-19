@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     var pkg = grunt.file.readJSON('package.json');
 
     function getReplaceData(type) {
-        var arr = 'name description logo since update version license'.split(' ');
+        var arr = 'name description logo language since update version license hompage'.split(' ');
         var o = {};
         var i, l, s;
 
@@ -13,6 +13,8 @@ module.exports = function(grunt) {
         }
 
         o.update = '<%= grunt.template.today("yyyy.mm.dd") %>';
+        o.gitHub = '<%= pkg.homepage %>';
+        o.jspath = '../js';
         o.type = type;
 
         return o;
@@ -31,8 +33,10 @@ module.exports = function(grunt) {
 
         banner: [
             '/*!',
-            ' *  <%= pkg.name %> <%= pkg.version %> - coxcore.com\n',
-            ' *  <%= pkg.description %>\n',
+            ' *  <%= pkg.name %> <%= pkg.version %> - coxcore.com',
+            ' *',
+            ' *  <%= pkg.description %>',
+            ' *',
             ' *  @author  <%= pkg.author %> / <%= pkg.authorInfo.codename %>',
             ' *  @email   <%= pkg.authorInfo.email %>',
             ' *  @update  <%= grunt.template.today("yyyy.mm.dd") %> (since <%= pkg.since %>)',
@@ -55,7 +59,7 @@ module.exports = function(grunt) {
             options: {
                 banner: [
                     '<%= banner %>\n',
-                    '(function(){',
+                    '(function(cox){',
                     '"use strict";',
                     '// closure >>>>\n\n',
                     '// module\n'
@@ -69,7 +73,7 @@ module.exports = function(grunt) {
                 footer: [
                     '\n// end of module\n\n',
                     '// <<<< closure',
-                    '})();\n'
+                    '})(window.<%= pkg.namespace %> || (window.<%= pkg.namespace %>={}));\n'
                 ].join('\n'),
 
                 stripBanners: {
@@ -80,8 +84,8 @@ module.exports = function(grunt) {
 
             basic: {
                 src: [
-                    '<%= dir.src %>js/cox.js',
                     '<%= dir.src %>js/cox.ready.js',
+                    '<%= dir.src %>js/cox.css.js',
                     '<%= dir.src %>js/cox.TagWire.js',
                     '<%= dir.src %>js/jquery.TagWire.js'
                 ],
@@ -152,7 +156,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-include-replace');
-    grunt.loadNpmTasks('grunt-shell');
 
     grunt.registerTask('default', [
         'jshint',

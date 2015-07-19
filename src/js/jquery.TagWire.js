@@ -4,17 +4,28 @@
     @package jquery.TagWire
     @author cox.ascript
 */
-(function($, TagWire) {
+(function plugin() {
 
-    if (!$ || !TagWire) {
+    var TagWire = window.TagWire;
+    var $ = window.jQuery;
+
+
+    if (!TagWire) {
         return;
+    }
+
+    if (!$) {
+        TagWire.plugin('jQuery', plugin);
+        return false;
+    } else {
+        TagWire.plugin('jQuery', true);
     }
 
 
     // override tagwire tail
-    TagWire.setTail('data', function(t, v, c) {
+    TagWire.innerTail('data', function(t, v, c) {
         $(t).data(c, v);
-    });
+    }, true);
 
 
     // tagwire plugin
@@ -90,4 +101,6 @@
         }
     }
 
-})(window.jQuery, window.TagWire);
+    return true;
+
+})();

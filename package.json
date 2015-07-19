@@ -1,16 +1,18 @@
 {
   "name": "TagWire",
   "description": "This library helps you on the data binds between Javascript object and HTML tags.",
+  "logo": "https://raw.githubusercontent.com/coxcore/cox-tagwire/master/src/img/tagwire_logo.png",
   "version": "1.0.3",
   "since": "2012.09",
+  "namespace": "cox",
+  "language": "javascript",
   "author": "Park U-yeong",
-  "logo": "https://raw.githubusercontent.com/dev-ascript/dev/master/src/img/tagwire_logo.png",
   "authorInfo": {
     "codename": "cox.ascript",
     "email": "ascript0@gmail.com"
   },
   "license": "MIT",
-  "main": "dist",
+  "main": "dist/cox.tagwire.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,15 +25,14 @@
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-include-replace": "^3.0.0",
-    "grunt-shell": "^1.1.2",
     "jshint-stylish": "^2.0.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dev-ascript/dev.git"
+    "url": "git+https://github.com/coxcore/cox-tagwire.git"
   },
   "bugs": {
-    "url": "https://github.com/dev-ascript/dev/issues"
+    "url": "https://github.com/coxcore/cox-tagwire/issues"
   },
-  "homepage": "https://github.com/dev-ascript/dev#readme"
+  "homepage": "https://github.com/coxcore/cox-tagwire#readme"
 }

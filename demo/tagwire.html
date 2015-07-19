@@ -64,6 +64,7 @@
 </div>
 
 
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
 @@include('@@type_script.html')
 <script type="text/javascript">
 
@@ -73,7 +74,7 @@
         "package": {
 
             "project": "@@name",
-            "language": "javascript",
+            "language": "@@language",
             "description": "@@description",
             "logo": '@@logo',
             "version": "@@version",
@@ -85,11 +86,11 @@
             "library": [
                 {
                     "file": "cox.tagwire.js",
-                    "path": "../cox.tagwire.js"
+                    "path": "@@jspath/cox.tagwire.js"
                 },
                 {
                     "file": "cox.tagwire.min.js",
-                    "path": "../cox.tagwire.min.js"
+                    "path": "@@jspath/cox.tagwire.min.js"
                 }
             ],
 
@@ -112,7 +113,7 @@
                 },
                 {
                     "site" : "GitHub",
-                    "url" : "https://github.com/coxcore/tagwire#readme"
+                    "url" : "@@gitHub"
                 }
             ]
 
