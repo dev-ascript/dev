@@ -350,10 +350,10 @@ cox.TagWire = (function() {
                     s = t.cloneNode().outerHTML;
 
                 s.replace(RE.attl, function(o, s) {
-                    var ab = t.getAttributeNode(s);
+                    var ab = t.getAttributeNode(s).nodeValue;
 
                     if (typeof ab !== 'object') {
-                        b.push(ab);
+                        b.push(s);
                     }
 
                     return o;
@@ -1221,7 +1221,7 @@ cox.TagWire = (function() {
             r = rx[V.rep + c] || rxReg(V.rep + c, new RegExp(s, 'g'));
 
             each(attrList(t), function(p) {
-                p = p.name;
+                p = p.name || p;
                 pv = t.getAttribute(p);
 
                 if (typeof pv === 'string' && pv.indexOf(s) !== -1) {
