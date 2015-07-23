@@ -98,21 +98,43 @@ window.testUtils = {
             replace(/&amp;/g, '&').
             replace(/<br[^>]*>/gi, '').
             replace(/<[^>]*$/, '').
-            replace(/\n/g, '');
+            replace(/\n|\r/g, '');
         data = data.toLowerCase().
             replace(/<br[^>]*>/gi, '').
             replace(/<[^>]*$/, '').
-            replace(/\n/g, '');
+            replace(/\n|\r/g, '');
 
         if (val !== data) {
-            console.log(val);
-            console.log(data);
             if (message === undefined) {
                 message = [
                     '<strong>',
                     $target[0].nodeName,
                     '</strong>의 <strong>',
                     '</strong> html 값이 <strong>',
+                    val,
+                    '</strong> 입니다.<br />&gt;&gt;&gt; <strong>',
+                    data,
+                    '</strong>'
+                ].join('');
+            }
+
+            testResult.errors.push('[' + name + '] : ' + message);
+            $target.addClass('errorElement');
+        }
+
+    },
+
+    checkShow: function(name, $target, data, message) {
+
+        var val = $target.css('display') !== 'none';
+        
+        if (val !== data) {
+            if (message === undefined) {
+                message = [
+                    '<strong>',
+                    $target[0].nodeName,
+                    '</strong>의 <strong>',
+                    '</strong> display 값이 <strong>',
                     val,
                     '</strong> 입니다.<br />&gt;&gt;&gt; <strong>',
                     data,
@@ -160,6 +182,7 @@ window.testData = {
 
 
     "_variable-text": {
+
         test: function(section) {
 
             var options = section.options;
@@ -180,10 +203,12 @@ window.testData = {
             });
 
         }
+
     },
 
 
     "_variable-html": {
+
         test: function(section) {
             var options = section.options;
             var $pre = $(options.tag);
@@ -200,6 +225,66 @@ window.testData = {
                 testUtils.checkHtml(options.titleValue, $tar, val);
             });
         }
+
+    },
+
+
+    "_variable-attr": {
+
+        test: function(section) {
+
+            var options = section.options;
+            var $child = $(options.tag).children();
+            var idx = 0;
+            var dt = json.package;
+            var arr = [
+                { id : dt.group },
+                { title : dt.group + ' ' + dt.project }
+            ];
+
+            TagWire.each(arr, function(o, i) {
+                testUtils.checkAttribute(options.titleValue, $child.eq(i), o);
+            });
+        }
+
+    },
+
+
+    "_variable-replace": {
+
+        test: function(section) {
+            var options = section.options;
+            var $child = $(options.tag).children();
+            var idx = 0;
+            var dt = json.package;
+            var str = [
+                'group 값 \'' + dt.group + '\' 출력 <span>#group#</span> 자식 엘리먼트는 미적용',
+                'group 값 \'' + dt.group + '\' 출력 <span>' + dt.group + '</span> 자식 엘리먼트도 적용'
+            ];
+
+            TagWire.each(str, function(s, i) {
+                testUtils.checkHtml(options.titleValue, $child.eq(i), s);
+            });
+        }
+
+    },
+
+
+    "_variable-show": {
+
+        test: function(section) {
+            var options = section.options;
+            var $child = $(options.tag).children();
+            var idx = 0;
+            var dt = json.package;
+
+            TagWire.each($child, function(el, i) {
+                var $tar = $(el);
+                var val = $tar.attr('class').replace(/^.*_([^\-]+)-show.*$/, '$1');
+                testUtils.checkShow(options.titleValue, $tar, TagWire.checkBoolean(dt[val]));
+            });
+        }
+
     }
 
 };

@@ -152,6 +152,79 @@ checkbox, radio 등 'checked' 처리
 
 
 
+<div class="section"><!-- section -->
+<h2 data-ref="title">_variable-attr</h2>
+
+
+<pre data-ref="tag">
+<span id="#group#" class="_group-attr">group 값을 id 속성에 설정</span>
+<span title="#group# #project#" class="_group-attr _project-attr">group 값과 project 값을 title 속성에 설정</span>
+</pre>
+
+
+<p class="title">[Before]</p>
+<div class="code" data-ref="before"></div>
+
+<p class="title">[After]</p>
+<div class="code" data-ref="after"></div>
+<!-- /section --></div>
+
+
+
+
+<div class="section"><!-- section -->
+<h2 data-ref="title">_variable-replace</h2>
+
+
+<pre data-ref="tag">
+<span class="_group-insert">group 값 '#group#' 출력 <span>#group#</span> 자식 엘리먼트는 미적용</span>
+<span class="_group-replace">group 값 '#group#' 출력 <span>#group#</span> 자식 엘리먼트도 적용</span>
+</pre>
+
+
+<p class="title">[Before]</p>
+<div class="code" data-ref="before"></div>
+
+<p class="title">[After]</p>
+<div class="code" data-ref="after"></div>
+<!-- /section --></div>
+
+
+
+
+<div class="section"><!-- section -->
+<h2 data-ref="title">_variable-show</h2>
+
+
+<pre data-ref="tag">
+<span class="_project-show">project 값 보임</span>
+<span class="_nullVal-show">null 숨김</span>
+<span class="_emptyVal-show">"" 숨김</span>
+<span class="_undefVal-show">undefined 숨김</span>
+<span class="_zeroVal-show">0 숨김</span>
+<span class="_oneVal-show">1 보임</span>
+<span class="_trueVal-show">true 보임</span>
+<span class="_falseVal-show">false 숨김</span>
+
+<span class="_nullStr-show">"null" 숨김</span>
+<span class="_undefStr-show">"undefined" 숨김</span>
+<span class="_zeroStr-show">"0" 숨김</span>
+<span class="_oneStr-show">"1" 보임</span>
+<span class="_trueStr-show">"true" 보임</span>
+<span class="_falseStr-show">"false" 숨김</span>
+</pre>
+
+
+<p class="title">[Before]</p>
+<div class="code" data-ref="before"></div>
+
+<p class="title">[After]</p>
+<div class="code" data-ref="after"></div>
+<!-- /section --></div>
+
+
+
+
 </div>
 <!-- /testcode -->
 
