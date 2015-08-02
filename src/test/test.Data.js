@@ -75,8 +75,8 @@ window.testUtils = {
                 message = [
                     '<strong>',
                     $target[0].nodeName,
-                    '</strong>의 <strong>',
-                    '</strong> 텍스트 값이 <strong>',
+                    '</strong>의 ',
+                    '텍스트 값이 <strong>',
                     val,
                     '</strong> 입니다.<br />&gt;&gt;&gt; <strong>',
                     data,
@@ -109,8 +109,8 @@ window.testUtils = {
                 message = [
                     '<strong>',
                     $target[0].nodeName,
-                    '</strong>의 <strong>',
-                    '</strong> html 값이 <strong>',
+                    '</strong>의 ',
+                    'html 값이 <strong>',
                     val,
                     '</strong> 입니다.<br />&gt;&gt;&gt; <strong>',
                     data,
@@ -133,8 +133,8 @@ window.testUtils = {
                 message = [
                     '<strong>',
                     $target[0].nodeName,
-                    '</strong>의 <strong>',
-                    '</strong> display 값이 <strong>',
+                    '</strong>의 ',
+                    'display 값이 <strong>',
                     val,
                     '</strong> 입니다.<br />&gt;&gt;&gt; <strong>',
                     data,
@@ -144,6 +144,38 @@ window.testUtils = {
 
             testResult.errors.push('[' + name + '] : ' + message);
             $target.addClass('errorElement');
+        }
+
+    },
+
+    checkClass: function(name, $target, data, message) {
+
+        var val,
+            check;
+
+        for (check in data) {
+
+            val = $target.hasClass(check);
+
+            if (val !== data[check]) {
+                if (message === undefined) {
+                    message = [
+                        '<strong>',
+                        $target[0].nodeName,
+                        '</strong> 태그의 hasClass("<strong>',
+                        check,
+                        '</strong>") 값이 <strong>',
+                        val,
+                        '</strong> 입니다.<br />&gt;&gt;&gt; <strong>',
+                        data[check],
+                        '</strong>'
+                    ].join('');
+                }
+
+                testResult.errors.push('[' + name + '] : ' + message);
+                $target.addClass('errorElement');
+            }
+
         }
 
     }
@@ -158,7 +190,6 @@ window.testData = {
 
             var options = section.options;
             var $child = $(options.tag).children();
-            var idx = 0;
             var dt = json.package;
             var arr = [
                 { title : dt.project, href : dt.website },
@@ -187,7 +218,6 @@ window.testData = {
 
             var options = section.options;
             var $pre = $(options.tag);
-            var idx = 0;
             var dt = json.package;
             var arr = [
                 'description',
@@ -212,7 +242,6 @@ window.testData = {
         test: function(section) {
             var options = section.options;
             var $pre = $(options.tag);
-            var idx = 0;
             var dt = json.package;
             var arr = [
                 'htmlStr',
@@ -235,7 +264,6 @@ window.testData = {
 
             var options = section.options;
             var $child = $(options.tag).children();
-            var idx = 0;
             var dt = json.package;
             var arr = [
                 { id : dt.group },
@@ -255,7 +283,6 @@ window.testData = {
         test: function(section) {
             var options = section.options;
             var $child = $(options.tag).children();
-            var idx = 0;
             var dt = json.package;
             var str = [
                 'group 값 \'' + dt.group + '\' 출력 <span>#group#</span> 자식 엘리먼트는 미적용',
@@ -275,7 +302,6 @@ window.testData = {
         test: function(section) {
             var options = section.options;
             var $child = $(options.tag).children();
-            var idx = 0;
             var dt = json.package;
 
             TagWire.each($child, function(el, i) {
@@ -283,6 +309,36 @@ window.testData = {
                 var val = $tar.attr('class').replace(/^.*_([^\-]+)-show.*$/, '$1');
                 testUtils.checkShow(options.titleValue, $tar, TagWire.checkBoolean(dt[val]));
             });
+        }
+
+    },
+
+
+    "_variable-class": {
+
+        test: function(section) {
+            var options = section.options;
+            var $child = $('[class*="-setClass"]', options.tag);
+            var dt = json.package;
+            var o;
+
+            TagWire.each($child, function(el, i) {
+                var $tar = $(el);
+                var val = $tar.attr('class').replace(/^.*_([^\-]+)-setClass.*$/, '$1');
+                
+                o = {};
+                o[val] = TagWire.checkBoolean(dt[val]);
+                testUtils.checkClass(options.titleValue, $tar, o);
+            });
+
+            $child = $('[class*="-addClass"]', options.tag);
+            o = {};
+            o[dt.project] = true;
+            testUtils.checkClass(options.titleValue, $child, o);
+
+            $child = $('[class*="-removeClass"]', options.tag);
+            o[dt.project] = false;
+            testUtils.checkClass(options.titleValue, $child, o);
         }
 
     }
