@@ -1,7 +1,7 @@
 /*!
 	SyntaxHL Prototype - coxcore.com
 
-    @package cox.utils.syntaxHL
+    @package cox.syntaxHL
 	@author cox.ascript
 */
 cox.syntaxHL = function(html) {

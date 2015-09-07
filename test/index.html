@@ -32,11 +32,11 @@
 </style>
 
 <!-- cox.TagWire package -->
-<script type="text/javascript" src="../js/cox.namespace.js"></script>
-<script type="text/javascript" src="../js/cox.ready.js"></script>
-<script type="text/javascript" src="../js/cox.css.js"></script>
-<script type="text/javascript" src="../js/cox.TagWire.js"></script>
-<script type="text/javascript" src="../js/jquery.TagWire.js"></script>
+<script type="text/javascript" src="../src/js/cox.namespace.js"></script>
+<script type="text/javascript" src="../src/js/cox.ready.js"></script>
+<script type="text/javascript" src="../src/js/cox.css.js"></script>
+<script type="text/javascript" src="../src/js/cox.TagWire.js"></script>
+<script type="text/javascript" src="../src/js/jquery.TagWire.js"></script>
 <!-- /cox.TagWire package -->
 
 <!-- TagWire보다 늦게 include 하면 jQuery 없는 환경으로 TagWire 테스트 -->
@@ -271,7 +271,7 @@ checkbox, radio 등 'checked' 처리
 
 
 
-<script type="text/javascript" src="../js/cox.syntaxHL.js"></script>
+<script type="text/javascript" src="cox.syntaxHL.js"></script>
 <script type="text/javascript" src="test.Data.js"></script>
 <script type="text/javascript" src="test.TagWire.js"></script>
 <script type="text/javascript">
@@ -365,6 +365,7 @@ checkbox, radio 등 'checked' 처리
     };
 
     // render data
+    /*
     if (TagWire.plugin('jQuery')) {
         console.log('## jQuery Plugin Mode');
         $('body').render(json, tagwireTest);
@@ -372,7 +373,8 @@ checkbox, radio 등 'checked' 처리
         console.log('## TagWire Native Mode');
         TagWire.render(document.body, json, tagwireTest);
     }
-
+    */
+    TagWire.render(document.body, json, tagwireTest);
 
 </script>
 
